@@ -27,9 +27,9 @@ input("Aperte Enter para continuar...")
 
 # TAREFA 1
 # TODO: Imprima as primeiras 20 linhas usando um loop para identificar os dados.
-for x in range (20):
-	head = (data_list[x])
-	print (head)
+for num_lin in range (20):
+	num_linhas = (data_list[num_lin])
+	print (num_linhas)
 print("\n\nTAREFA 1: Imprimindo as primeiras 20 amostras")
 
 # Vamos mudar o data_list para remover o cabeçalho dele.
@@ -41,8 +41,8 @@ input("Aperte Enter para continuar...")
 
 # TAREFA 2
 # TODO: Imprima o `gênero` das primeiras 20 linhas
-for x in range (20):
-	gender = (data_list[x])
+for gender_lin in range (20):
+	gender = (data_list[gender_lin])
 	print (gender[6])
 	
 print("\nTAREFA 2: Imprimindo o gênero das primeiras 20 amostras")
@@ -64,8 +64,8 @@ def column_to_list(data, index):
           column_list: Uma lista de valores x.
     """
     column_list = []
-    for x in range (len(data)):
-        column_list.append(data[x][index])
+    for lin_feat in range (len(data)):
+        column_list.append(data[lin_feat][index])
     return column_list
 	
 # Dica: Você pode usar um for para iterar sobre as amostras, pegar a feature pelo seu índice, e dar append para uma lista
@@ -89,8 +89,8 @@ input("Aperte Enter para continuar...")
 male = 0
 female = 0
 equal = 0
-for x in range (len(data_list)):
-	gender = (data_list[x])
+for num_gender in range (len(data_list)):
+	gender = (data_list[num_gender])
 	if gender[6] == 'Male':
 		male += 1
 	elif gender [6] == 'Female':
@@ -127,8 +127,8 @@ def count_gender(data_list):
     """
     male = 0
     female = 0
-    for i in range (len(data_list)):
-        gender = data_list[i]
+    for num_gen in range (len(data_list)):
+        gender = data_list[num_gen]
         if gender[6] == 'Male':
             male += 1
         elif gender [6] == 'Female':
@@ -159,7 +159,7 @@ def most_popular_gender(data_list):
           answer: Resposta do genero mais popular		  
     """
     count_gender(data_list)
-    if count_gender(data_list)[0] < count_gender(data_list)[1]:
+    if male < female:
         answer = "Female"
     else:
         answer = "Male"	
@@ -203,8 +203,8 @@ def count_userstypes(data_list):
     subscriber = 0
     customer = 0
     dependent = 0
-    for i in range (len(data_list)):
-        userst = data_list[i]
+    for num_user in range (len(data_list)):
+        userst = data_list[num_user]
         if userst[5] == 'Subscriber':
             subscriber += 1
         elif userst [5] == 'Customer':
@@ -263,9 +263,9 @@ min_trip = int(orden_trip[0])
 max_trip = int(orden_trip[-1])
 
 #Calculo da Media
-for x in range(len(data_list)):
-    mean_trip += int(orden_trip[x])
-    x += 1
+for num_list in range(len(data_list)):
+    mean_trip += int(orden_trip[num_list])
+    num_list += 1
 mean_trip = float(mean_trip/len(data_list))
 
 # Calculo da Mediana. Tentei fazer do modo a não utilizar funcoes prontas (statistic)
@@ -278,8 +278,8 @@ if num_line % 2 == 0:
     median_value2 = int(orden_trip[value2])
     median_trip = (median_value1 + median_value2)/2 	
 else:
-    median_value = float(num_line/2)
-    median_value += 0.5
+    median_value = float(num_line//2)
+    #median_value += 0.5
     median_value = (int(median_value))
     median_trip = int(orden_trip[median_value])
 
